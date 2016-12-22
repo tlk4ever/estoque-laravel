@@ -1,7 +1,7 @@
 /vendor
 /node_modules
 /public/storage
-/nbproject
+/nbproject/
 /estoque-laravel
 Homestead.yaml
 Homestead.json
