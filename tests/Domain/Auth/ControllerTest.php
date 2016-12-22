@@ -6,12 +6,12 @@
  * @author THIAGO
  */
 
-namespace App\Http\Controller;
+namespace Domain\Auth;
 
-use App\User;
+use Domain\User\User;
 use Illuminate\Foundation\Testing\DataBaseTransactions;
 
-class AuthControllerTest extends \TestCase {
+class ControllerTest extends \TestCase {
 
     use DataBaseTransactions;
 

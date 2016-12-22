@@ -1,22 +1,24 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Domain\Auth;
 
-use App\Http\Requests\AuthRequest;
+use Auth;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
-use Auth;
-class AuthController extends Controller {
 
-    public function login(AuthRequest $request) {
+class Controller extends \Domain\Core\Http\Controller
+{
+    public function login(Request $request)
+    {
         // grab credentials from the request
         $credentials = $request->only('username', 'password');
-        $email = $request->username;
-        
-        if(filter_var($email,FILTER_VALIDATE_EMAIL)){
+        $email       = $request->username;
+
+        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $credentials['email'] = $email;
             unset($credentials['username']);
         }
+
         try {
             // attempt to verify the credentials and create a token for the user
             if (!$token = JWTAuth::attempt($credentials)) {
@@ -30,12 +32,11 @@ class AuthController extends Controller {
         // all good so return the token
         return $this->getUser($token);
     }
-    
+
     public function getUser(string $token)
     {
         $user = Auth::user();
-        
-        return compact('token','user');
-    }
 
+        return compact('token', 'user');
+    }
 }

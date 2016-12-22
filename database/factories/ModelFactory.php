@@ -11,7 +11,7 @@
   |
  */
 
-use App\User;
+use Domain\User\User;
 
 $factory->define(User::class, function (Faker\Generator $faker) {
     return [
