@@ -9,11 +9,10 @@
 namespace Domain\Auth;
 
 use Domain\User\User;
-use Illuminate\Foundation\Testing\DataBaseTransactions;
 
 class ControllerTest extends \TestCase {
 
-    use DataBaseTransactions;
+   
 
     public function testLogin() {
         $data = [

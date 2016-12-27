@@ -15,3 +15,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::post('auth/login','\Domain\Auth\Controller@login');
+
+Route::resource('client','\Domain\Client\Controller');
